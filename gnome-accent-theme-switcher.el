@@ -32,7 +32,7 @@
 ;; Emacs theme based on the user's choice of accent color and
 ;; light/dark mode.  Those are settings provided by the GNOME desktop
 ;; environment.
-;; 
+;;
 ;; The user option `gnome-accent-theme-switcher-collection' defines
 ;; the list of themes that are used for each accent color, grouped by
 ;; light and dark mode.  By default, almost all of my themes are
@@ -197,6 +197,43 @@ as a string.  VALUE is what corresponds to KEY, as a list of strings."
     (when gnome-accent-theme-switcher--dbus-object
       (dbus-unregister-object gnome-accent-theme-switcher--dbus-object)
       (setq gnome-accent-theme-switcher--dbus-object nil))))
+
+;;;###autoload
+(defun gnome-accent-theme-switcher-toggle-mode ()
+  "Toggle the GNOME preference for light or dark themes."
+  (interactive)
+  (if (gnome-accent-theme-switcher--dark-p)
+      (gnome-accent-theme-switcher--set-gsettings "color-scheme" "'prefer-light'")
+    (gnome-accent-theme-switcher--set-gsettings "color-scheme" "'prefer-dark'")))
+
+(defvar gnome-accent-theme-switcher-color-prompt-history nil
+  "Minibuffer history for `gnome-accent-theme-switcher-color-prompt'.")
+
+(defun gnome-accent-theme-switcher-color-prompt ()
+  "Select color among `gnome-accent-theme-switcher-colors'."
+  (let ((default (car gnome-accent-theme-switcher-color-prompt-history)))
+    (completing-read
+     (format-prompt "Select GNOME accent color" default)
+     gnome-accent-theme-switcher-colors nil t nil
+     'gnome-accent-theme-switcher-color-prompt-history default)))
+
+;;;###autoload
+(defun gnome-accent-theme-switcher-change-accent (color &optional also-toggle-light)
+  "Change the current GNOME accent to COLOR.
+When called interactively, prompt for COLOR.  When called from Lisp,
+COLOR is a member of `gnome-accent-theme-switcher-colors'.
+
+With optional ALSO-TOGGLE-LIGHT, toggle the GNOME preference for light
+or dark theme.  When called interactively, this is a prefix argument."
+  (interactive
+   (list
+    (gnome-accent-theme-switcher-color-prompt)
+    current-prefix-arg))
+  (unless (member color gnome-accent-theme-switcher-colors)
+    (error "The color `%S' is not a member of `gnome-accent-theme-switcher-colors'" color))
+  (when also-toggle-light
+    (gnome-accent-theme-switcher-toggle-mode))
+  (gnome-accent-theme-switcher--set-gsettings "accent-color" color))
 
 (provide 'gnome-accent-theme-switcher)
 ;;; gnome-accent-theme-switcher.el ends here
