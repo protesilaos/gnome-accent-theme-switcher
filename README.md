@@ -18,9 +18,13 @@ spanning the packages `modus-themes`, `ef-themes`, `doric-themes`, and
 
 ```elisp
 (use-package gnome-accent-theme-switcher
+  :demand t
   :init
   (unless (package-installed-p 'gnome-accent-theme-switcher)
     (package-vc-install "https://github.com/protesilaos/gnome-accent-theme-switcher.git"))
+  :bind
+  (("<f5>" . gnome-accent-theme-switcher-toggle-mode)
+   ("C-<f5>" . gnome-accent-theme-switcher-change-accent))
   :config
   (gnome-accent-theme-switcher-mode 1))
 ```
