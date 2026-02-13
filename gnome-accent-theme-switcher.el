@@ -218,21 +218,13 @@ as a string.  VALUE is what corresponds to KEY, as a list of strings."
      'gnome-accent-theme-switcher-color-prompt-history default)))
 
 ;;;###autoload
-(defun gnome-accent-theme-switcher-change-accent (color &optional also-toggle-light)
+(defun gnome-accent-theme-switcher-change-accent (color)
   "Change the current GNOME accent to COLOR.
 When called interactively, prompt for COLOR.  When called from Lisp,
-COLOR is a member of `gnome-accent-theme-switcher-colors'.
-
-With optional ALSO-TOGGLE-LIGHT, toggle the GNOME preference for light
-or dark theme.  When called interactively, this is a prefix argument."
-  (interactive
-   (list
-    (gnome-accent-theme-switcher-color-prompt)
-    current-prefix-arg))
+COLOR is a member of `gnome-accent-theme-switcher-colors'."
+  (interactive (list (gnome-accent-theme-switcher-color-prompt)))
   (unless (member color gnome-accent-theme-switcher-colors)
     (error "The color `%S' is not a member of `gnome-accent-theme-switcher-colors'" color))
-  (when also-toggle-light
-    (gnome-accent-theme-switcher-toggle-mode))
   (gnome-accent-theme-switcher--set-gsettings "accent-color" color))
 
 (provide 'gnome-accent-theme-switcher)
