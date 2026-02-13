@@ -110,6 +110,14 @@ THEMES are one or more symbols of themes."
     (error "The key `%S' is not `%S' or `%S'" key "accent-color" "color-scheme"))
   (shell-command-to-string (format "gsettings get org.gnome.desktop.interface %s" key)))
 
+(defun gnome-accent-theme-switcher--set-gsettings (key value)
+  "Set KEY of gsettings org.gnome.desktop.interface namespace to VALUE."
+  (unless (executable-find "gsettings")
+    (error "The `gsettings' program is not available"))
+  (unless (member key '("accent-color" "color-scheme"))
+    (error "The key `%S' is not `%S' or `%S'" key "accent-color" "color-scheme"))
+  (shell-command-to-string (format "gsettings set org.gnome.desktop.interface %s %s" key value)))
+
 (defun gnome-accent-theme-switcher-gnome--get-accent-color-string (accent)
   "Return the string that corresponds to GNOME's ACCENT color."
   (seq-find
