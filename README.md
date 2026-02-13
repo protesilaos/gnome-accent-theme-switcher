@@ -1,5 +1,9 @@
 # GNOME accent theme switcher for GNU Emacs
 
+VIDEO DEMO: <https://protesilaos.com/codelog/2026-02-13-emacs-gnome-accent-theme-switcher/>.
+
+* * *
+
 This is a small package that provides the minor mode
 `gnome-accent-theme-switcher-mode`. Once enabled, this mode receives
 input from the GNOME desktop environment to update the Emacs theme
