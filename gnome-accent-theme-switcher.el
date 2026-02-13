@@ -206,6 +206,22 @@ as a string.  VALUE is what corresponds to KEY, as a list of strings."
       (gnome-accent-theme-switcher--set-gsettings "color-scheme" "'prefer-light'")
     (gnome-accent-theme-switcher--set-gsettings "color-scheme" "'prefer-dark'")))
 
+(defun gnome-accent-theme-switcher-get-completion-table (candidates &rest metadata)
+  "Return completion table with CANDIDATES and METADATA.
+CANDIDATES is a list of strings.  METADATA is described in
+`completion-metadata'."
+  (lambda (string pred action)
+    (if (eq action 'metadata)
+        (cons 'metadata metadata)
+      (complete-with-action action candidates string pred))))
+
+(defun gnome-accent-theme-switcher-annotate (accent)
+  "Annotate ACCENT color with its corresponding themes."
+  (when-let* ((subset (alist-get accent gnome-accent-theme-switcher-collection nil nil #'string=))
+              (light-or-dark (if (gnome-accent-theme-switcher--dark-p) :dark :light))
+              (themes (plist-get subset light-or-dark)))
+    (format " -- %s" (propertize (format "%S" themes) 'face 'completions-annotations))))
+
 (defvar gnome-accent-theme-switcher-color-prompt-history nil
   "Minibuffer history for `gnome-accent-theme-switcher-color-prompt'.")
 
@@ -214,7 +230,11 @@ as a string.  VALUE is what corresponds to KEY, as a list of strings."
   (let ((default (car gnome-accent-theme-switcher-color-prompt-history)))
     (completing-read
      (format-prompt "Select GNOME accent color" default)
-     gnome-accent-theme-switcher-colors nil t nil
+     (gnome-accent-theme-switcher-get-completion-table
+      gnome-accent-theme-switcher-colors
+      '(category . gnome-accent-color)
+      '(annotation-function . gnome-accent-theme-switcher-annotate))
+     nil t nil
      'gnome-accent-theme-switcher-color-prompt-history default)))
 
 ;;;###autoload
