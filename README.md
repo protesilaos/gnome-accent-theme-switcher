@@ -20,6 +20,7 @@ spanning the packages `modus-themes`, `ef-themes`, `doric-themes`, and
 (use-package gnome-accent-theme-switcher
   :demand t
   :init
+  ;; Then upgrade it with the command `package-vc-upgrade' or `package-vc-upgrade-all'.
   (unless (package-installed-p 'gnome-accent-theme-switcher)
     (package-vc-install "https://github.com/protesilaos/gnome-accent-theme-switcher.git"))
   :bind
