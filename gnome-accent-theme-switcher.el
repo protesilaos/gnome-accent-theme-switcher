@@ -117,13 +117,17 @@ THEMES are one or more symbols of themes."
      (string-match-p color accent))
    gnome-accent-theme-switcher-colors))
 
+(defun gnome-accent-theme-switcher--dark-p ()
+  "Return non-nil if GNOME has a dark theme preference."
+  (and-let* ((preference (gnome-accent-theme-switcher--get-gsettings "color-scheme"))
+             (_ (string-match-p "dark" preference)))))
+
 (defun gnome-accent-theme-switcher--get-themes ()
   "Return list of themes based on accent and light/dark color scheme."
   (when-let* ((accent (gnome-accent-theme-switcher--get-gsettings "accent-color"))
               (accent-color (gnome-accent-theme-switcher-gnome--get-accent-color-string accent))
               (subset (alist-get accent-color gnome-accent-theme-switcher-collection nil nil #'string=))
-              (color-scheme (gnome-accent-theme-switcher--get-gsettings "color-scheme"))
-              (light-or-dark (if (string-match-p "dark" color-scheme) :dark :light))
+              (light-or-dark (if (gnome-accent-theme-switcher--dark-p) :dark :light))
               (themes (plist-get subset light-or-dark)))
     themes))
 
