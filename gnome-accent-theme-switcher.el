@@ -121,7 +121,7 @@ THEMES are one or more symbols of themes."
     (error "The `gsettings' program is not available"))
   (unless (member key '("accent-color" "color-scheme"))
     (error "The key `%S' is not `%S' or `%S'" key "accent-color" "color-scheme"))
-  (shell-command-to-string (format "gsettings set org.gnome.desktop.interface %s %s" key value)))
+  (call-process "gsettings" nil 0 nil "set" "org.gnome.desktop.interface" key value))
 
 (defun gnome-accent-theme-switcher-gnome--get-accent-color-string (accent)
   "Return the string that corresponds to GNOME's ACCENT color."
