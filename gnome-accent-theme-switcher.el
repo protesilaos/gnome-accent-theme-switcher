@@ -133,8 +133,8 @@ Disable all other themes before loading the new one."
   (let ((theme (seq-random-elt themes)))
     (mapc #'disable-theme custom-enabled-themes)
     (cond
-     ((and (bound-and-true-p ef-themes-items)
-           (memq theme ef-themes-items))
+     ((and (fboundp 'modus-themes--modus-theme-p)
+           (modus-themes--modus-theme-p theme))
       (if (fboundp 'modus-themes-load-theme)
           (modus-themes-load-theme theme)
         (load-theme theme :no-confirm)))
