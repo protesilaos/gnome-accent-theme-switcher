@@ -38,6 +38,11 @@
 ;; light and dark mode.  By default, almost all of my themes are
 ;; included, spanning the packages `modus-themes', `ef-themes',
 ;; `doric-themes', and `standard-themes'.
+;;
+;; The command `gnome-accent-theme-switcher-toggle-mode' toggles the
+;; GNOME light/dark preference from inside Emacs.  While the command
+;; `gnome-accent-theme-switcher-change-accent' prompts for an accent
+;; color and changes it accordingly.
 
 ;;; Code:
 
