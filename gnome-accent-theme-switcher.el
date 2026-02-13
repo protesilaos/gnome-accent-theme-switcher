@@ -237,14 +237,14 @@ CANDIDATES is a list of strings.  METADATA is described in
      nil t nil 'gnome-accent-theme-switcher-color-prompt-history default)))
 
 ;;;###autoload
-(defun gnome-accent-theme-switcher-change-accent (color)
-  "Change the current GNOME accent to COLOR.
-When called interactively, prompt for COLOR.  When called from Lisp,
-COLOR is a member of `gnome-accent-theme-switcher-colors'."
+(defun gnome-accent-theme-switcher-change-accent (accent)
+  "Change the current GNOME color preference to ACCENT.
+When called interactively, prompt for ACCENT.  When called from Lisp,
+ACCENT is a string that is a member of `gnome-accent-theme-switcher-colors'."
   (interactive (list (gnome-accent-theme-switcher-color-prompt)))
-  (unless (member color gnome-accent-theme-switcher-colors)
-    (error "The color `%S' is not a member of `gnome-accent-theme-switcher-colors'" color))
-  (gnome-accent-theme-switcher--set-gsettings "accent-color" color))
+  (unless (member accent gnome-accent-theme-switcher-colors)
+    (error "The accent `%S' is not a member of `gnome-accent-theme-switcher-colors'" accent))
+  (gnome-accent-theme-switcher--set-gsettings "accent-color" accent))
 
 (provide 'gnome-accent-theme-switcher)
 ;;; gnome-accent-theme-switcher.el ends here
