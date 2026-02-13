@@ -234,8 +234,7 @@ CANDIDATES is a list of strings.  METADATA is described in
       gnome-accent-theme-switcher-colors
       '(category . gnome-accent-color)
       '(annotation-function . gnome-accent-theme-switcher-annotate))
-     nil t nil
-     'gnome-accent-theme-switcher-color-prompt-history default)))
+     nil t nil 'gnome-accent-theme-switcher-color-prompt-history default)))
 
 ;;;###autoload
 (defun gnome-accent-theme-switcher-change-accent (color)
