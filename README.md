@@ -1,4 +1,4 @@
-# GNOME accent color switcher for GNU Emacs
+# GNOME accent theme switcher for GNU Emacs
 
 This is a small package that provides the minor mode
 `gnome-accent-theme-switcher-mode`. Once enabled, this mode receives
