@@ -60,6 +60,7 @@
   '("blue" "teal" "green" "yellow" "orange" "red" "pink" "purple" "slate")
   "Names of accent colors used by the GNOME desktop environment.")
 
+;; TODO 2026-03-14: Add the new Doric themes when `doric-themes' version 1.1.0 is available.
 (defcustom gnome-accent-theme-switcher-collection
   '(("blue"
      :light (ef-maris-light ef-deuteranopia-light)
