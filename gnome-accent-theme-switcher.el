@@ -60,7 +60,6 @@
   '("blue" "teal" "green" "yellow" "orange" "red" "pink" "purple" "slate")
   "Names of accent colors used by the GNOME desktop environment.")
 
-;; TODO 2026-03-14: Add the new Doric themes when `doric-themes' version 1.1.0 is available.
 (defcustom gnome-accent-theme-switcher-collection
   '(("blue"
      :light (ef-maris-light ef-deuteranopia-light)
@@ -69,17 +68,17 @@
      :light (ef-spring ef-frost doric-wind doric-jade)
      :dark  (ef-maris-dark doric-valley))
     ("green"
-     :light (ef-cyprus ef-elea-light doric-oak)
-     :dark  (ef-bio ef-elea-dark ef-symbiosis doric-pine))
+     :light (ef-cyprus ef-elea-light doric-almond doric-oak)
+     :dark  (ef-bio ef-elea-dark ef-symbiosis doric-pine doric-walnut))
     ("yellow"
      :light (ef-melissa-light ef-duo-light ef-eagle doric-earth)
-     :dark  (ef-melissa-dark))
+     :dark  (ef-melissa-dark doric-fire))
     ("orange"
      :light (ef-orange ef-day doric-beach)
      :dark  (ef-autumn doric-copper))
     ("red"
-     :light (modus-operandi-tinted standard-light-tinted ef-tritanopia-light ef-arbutus)
-     :dark  (ef-tritanopia-dark doric-fire))
+     :light (modus-operandi-tinted standard-light-tinted ef-tritanopia-light ef-arbutus doric-coral)
+     :dark  (ef-tritanopia-dark doric-magma))
     ("pink"
      :light (ef-summer ef-reverie doric-cherry ef-kassio)
      :dark  (ef-cherie ef-rosa))
