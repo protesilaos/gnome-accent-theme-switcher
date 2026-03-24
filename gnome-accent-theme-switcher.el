@@ -164,8 +164,10 @@ Disable all other themes before loading the new one."
       (load-theme theme :no-confirm)))
     (message "Loaded `%s' among `%S'" theme themes)))
 
+;;;###autoload
 (defun gnome-accent-theme-switcher-load-theme ()
   "Load a theme based on GNOME settings."
+  (interactive)
   (when-let* ((themes (gnome-accent-theme-switcher--get-themes)))
     (gnome-accent-theme-switcher-load-random-theme themes)))
 
