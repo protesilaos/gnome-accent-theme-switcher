@@ -161,7 +161,8 @@ Disable all other themes before loading the new one."
           (doric-themes-load-theme theme)
         (load-theme theme :no-confirm)))
      (t
-      (load-theme theme :no-confirm)))))
+      (load-theme theme :no-confirm)))
+    (message "Loaded `%s' among `%S'" theme themes)))
 
 (defun gnome-accent-theme-switcher-load-theme ()
   "Load a theme based on GNOME settings."
