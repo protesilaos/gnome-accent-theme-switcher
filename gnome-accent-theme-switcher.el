@@ -153,7 +153,8 @@ THEMES are one or more symbols of themes."
 (defun gnome-accent-theme-switcher-load-random-theme (themes)
   "Load a random theme from THEMES.
 Disable all other themes before loading the new one."
-  (let ((theme (seq-random-elt themes)))
+  (let* ((minus-current (seq-difference themes custom-enabled-themes))
+         (theme (seq-random-elt minus-current)))
     (mapc #'disable-theme custom-enabled-themes)
     (cond
      ((and (fboundp 'modus-themes--modus-theme-p)
