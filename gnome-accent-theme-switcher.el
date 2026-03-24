@@ -171,7 +171,7 @@ Disable all other themes before loading the new one."
     (message "Loaded `%s' among `%S'" theme themes)))
 
 ;;;###autoload
-(defun gnome-accent-theme-switcher-load-theme ()
+(defun gnome-accent-theme-switcher-load-random-from-current-set ()
   "Load a theme based on GNOME settings."
   (interactive)
   (when-let* ((themes (gnome-accent-theme-switcher--get-themes)))
@@ -187,7 +187,7 @@ as a string.  VALUE is what corresponds to KEY, as a list of strings."
   (when (and (string= namespace "org.gnome.desktop.interface")
              (or (string= key "accent-color")
                  (string= key "color-scheme")))
-    (gnome-accent-theme-switcher-load-theme)))
+    (gnome-accent-theme-switcher-load-random-from-current-set)))
 
 ;;;###autoload
 (define-minor-mode gnome-accent-theme-switcher-mode
@@ -207,7 +207,7 @@ as a string.  VALUE is what corresponds to KEY, as a list of strings."
                  "org.freedesktop.portal.Settings"
                  "SettingChanged"
                  #'gnome-accent-theme-switcher-gnome-accent-color-changed-handler))
-          (gnome-accent-theme-switcher-load-theme)))
+          (gnome-accent-theme-switcher-load-random-from-current-set)))
     (when gnome-accent-theme-switcher--dbus-object
       (dbus-unregister-object gnome-accent-theme-switcher--dbus-object)
       (setq gnome-accent-theme-switcher--dbus-object nil))))

@@ -30,7 +30,8 @@ color and changes it accordingly.
     (package-vc-install "https://github.com/protesilaos/gnome-accent-theme-switcher.git"))
   :bind
   (("<f5>" . gnome-accent-theme-switcher-toggle-mode)
-   ("C-<f5>" . gnome-accent-theme-switcher-change-accent))
+   ("C-<f5>" . gnome-accent-theme-switcher-change-accent)
+   ("M-<f5>" . gnome-accent-theme-switcher-load-random-from-current-set))
   :config
   (gnome-accent-theme-switcher-mode 1))
 ```
