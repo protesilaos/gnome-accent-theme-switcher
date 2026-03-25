@@ -90,8 +90,8 @@
      :light (ef-trio-light ef-light doric-siren)
      :dark  (ef-trio-dark ef-winter ef-fig ef-dream doric-plum))
     ("slate"
-     :light (doric-marble doric-light)
-     :dark  (ef-owl doric-obsidian doric-water doric-dark)))
+     :light (modus-operandi doric-marble doric-light)
+     :dark  (modus-vivendi ef-owl doric-obsidian doric-water doric-dark)))
   "Collection of themes grouped by accent color and by light or dark mode.
 This is an alist where each element is of the following form:
 
