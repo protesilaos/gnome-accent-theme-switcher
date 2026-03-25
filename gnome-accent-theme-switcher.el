@@ -47,6 +47,10 @@
 ;;; Code:
 
 (require 'dbus)
+(require 'modus-themes)
+(require 'ef-themes)
+(require 'doric-themes)
+(require 'standard-themes)
 
 (defgroup gnome-accent-theme-switcher-themes nil
   "Automatically load theme to match the GNOME accent and light."
