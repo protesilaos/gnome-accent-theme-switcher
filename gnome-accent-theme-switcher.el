@@ -1,9 +1,9 @@
 ;;; gnome-accent-theme-switcher.el --- Automatically load theme to match the GNOME accent and light -*- lexical-binding: t -*-
 
-;; Copyright (C) 2026  Protesilaos Stavrou
+;; Copyright (C) 2026  Protesilaos
 
-;; Author: Protesilaos Stavrou <info@protesilaos.com>
-;; Maintainer: Protesilaos Stavrou <info@protesilaos.com>
+;; Author: Protesilaos <info@protesilaos.com>
+;; Maintainer: Protesilaos <info@protesilaos.com>
 ;; URL: https://github.com/protesilaos/gnome-accent-theme-switcher
 ;; Version: 0.0.0
 ;; Package-Requires: ((emacs "29.1") (modus-themes "5.2.0") (ef-themes "2.1.0") (doric-themes "1.0.0") (standard-themes "3.0.0"))
