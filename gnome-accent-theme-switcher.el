@@ -76,10 +76,10 @@
      :dark  (ef-bio ef-elea-dark ef-symbiosis doric-pine doric-walnut))
     ("yellow"
      :light (ef-melissa-light ef-duo-light ef-eagle doric-earth)
-     :dark  (ef-melissa-dark doric-fire))
+     :dark  (ef-melissa-dark doric-lion))
     ("orange"
-     :light (ef-orange ef-day doric-beach)
-     :dark  (ef-autumn doric-copper))
+     :light (ef-orange ef-day doric-beach doric-tiger)
+     :dark  (ef-autumn doric-copper doric-fire))
     ("red"
      :light (modus-operandi-tinted standard-light-tinted ef-tritanopia-light ef-arbutus doric-coral)
      :dark  (ef-tritanopia-dark doric-magma))
