@@ -87,8 +87,8 @@
      :light (ef-summer ef-reverie doric-cherry ef-kassio)
      :dark  (ef-cherie ef-rosa))
     ("purple"
-     :light (ef-trio-light ef-light doric-siren)
-     :dark  (ef-trio-dark ef-winter ef-fig ef-dream doric-plum))
+     :light (ef-trio-light ef-light doric-siren doric-lilac)
+     :dark  (ef-trio-dark ef-winter ef-fig ef-dream doric-plum doric-borage))
     ("slate"
      :light (modus-operandi doric-marble doric-light)
      :dark  (modus-vivendi ef-owl doric-obsidian doric-water doric-dark)))
