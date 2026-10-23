@@ -71,9 +71,11 @@
     ("teal"
      :light (ef-spring ef-frost doric-wind doric-jade)
      :dark  (ef-maris-dark doric-valley))
+    ;; TODO 2026-10-23: Add `doric-meadow' when it is available.
     ("green"
      :light (ef-cyprus ef-elea-light doric-almond doric-oak)
      :dark  (ef-bio ef-elea-dark ef-symbiosis doric-pine doric-walnut))
+    ;; TODO 2026-10-23: Add `doric-mountain' as well.
     ("yellow"
      :light (ef-melissa-light ef-duo-light ef-eagle doric-earth)
      :dark  (ef-melissa-dark doric-lion))
